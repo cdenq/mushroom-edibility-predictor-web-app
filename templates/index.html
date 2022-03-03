@@ -44,6 +44,64 @@
     </nav>
 
     
+    <div class="container">
+      <section class="row">
+        <div class="col-md-12">
+          <h1>Welcome text</h1>
+        </div>
+      </section>
+      <section>
+        <div class = "col-md-4">
+          <p>drop-down user input</p>
+          
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Cap diameter (cm)</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+          <!-- <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Default radio
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Second default radio
+            </label>
+          </div> -->
+          <select class="custom-select">
+            <option selected>Select cap shape</option>
+            <option value="b">bell</option>
+            <option value="c">conical</option>
+            <option value="x">convex</option>
+            <option value="f">flat</option>
+            <option value="s">sunken</option>
+            <option value="p">spherical</option>
+            <option value="o">others</option>
+          </select>
+          </form>
+
+          <button onclick="prediction()">Predict Edibility</button>
+
+        </div>
+
+        <div class="col-md-8">
+          <img src="#" alt="">
+          <p>image of parts of a mushroom?</p>
+        </div>
+      </section>
+      
+
+    <section class="row">
+      <div class="col-md-12">
+        <p id="predictions">results populate here</p>
+      </div>
+    </section>  
+    </div>
+
+    
     <!-- JavaScript -->
     <script type="text/javascript" src="../static/js/index.js"></script>
 
