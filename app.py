@@ -10,9 +10,9 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/predict')
-def prediction():
-    data = predict.make_predictions()
+@app.route('/<predict_list>')
+def prediction(predict_list):
+    data = predict.make_predictions(predict_list)
     return jsonify(data)
 
 @app.route('/mushroom_facts')
