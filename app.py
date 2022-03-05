@@ -1,5 +1,5 @@
 #imports
-from flask import Flask, render_template, redirect, jsonify
+from flask import Flask, render_template, redirect, jsonify, request
 import predict
 
 #create flask instance
@@ -10,19 +10,24 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/<predict_list>')
-def prediction(predict_list):
+#route for predicting from user input
+@app.route('/predict', methods = ['POST'])
+def prediction():
+    predict_list = request.get_json()
     data = predict.make_predictions(predict_list)
     return jsonify(data)
 
+#route for mushroom eda page
 @app.route('/mushroom_facts')
 def facts():
     return render_template('mushroom_facts.html')
 
+#route for page about comparing ML models
 @app.route('/compare_models')
 def models():
     return render_template('compare_models.html')
 
+#route for about page
 @app.route('/about')
 def about():
     return render_template('about.html')
