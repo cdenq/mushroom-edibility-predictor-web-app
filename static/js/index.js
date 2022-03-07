@@ -1,18 +1,18 @@
-async function main(){
-
-};
-
-main();
-
 async function prediction(){
-    // values class options collated
-    predict_list = ['this','is','a','test'];
+    //build object to pass
+    let feature_list = {};
 
-    //build object to pass************
-    let purple = document.getElementById('cap_shape')
-    console.log(purple.value)
+    let selections = document.getElementsByClassName('mushroom_traits');
+    for (let i = 0; i < selections.length; i++) {
+        feature_list[selections[i].id] = selections[i].value
+    };
 
-    let feature_list = {'cap_shape': purple};
+    console.log(feature_list)
+
+    //feature_list in correct order for python fnc--or build that as part of the python function?
+    //how to handle default "select gil color" values
+    //validation of numbers
+    
 
 
     //call flask route

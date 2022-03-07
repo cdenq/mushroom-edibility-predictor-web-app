@@ -54,24 +54,24 @@
         <div class = "col-md-4">
           <p>Select mushroom traits:</p>
           
-          <!-- ***********Complete form input fields -->
+          <!--form input fields -->
           <form id="feature_input">
             <div class="form-group">
-              <label for="exampleFormControlInput1">Cap diameter (cm)</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+              <label for="cap_diameter">Cap diameter (cm)</label>
+              <input type="number" class="form-control mushroom_traits" id="cap_diameter" min="0" step="0.01" placeholder="round to 2 decimals">
             </div>
 
             <div class="form-group">
-              <label for="exampleFormControlInput1">Stem Height (cm)</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+              <label for="stem_height">Stem height (cm)</label>
+              <input type="number" class="form-control mushroom_traits" id="stem_height" min="0" step="0.01" placeholder="round to 2 decimals">
             </div>
 
             <div class="form-group">
-              <label for="exampleFormControlInput1">Stem Width (cm)</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+              <label for="stem_width">Stem width (cm)</label>
+              <input type="number" class="form-control mushroom_traits" id="stem_width" min="0" step="0.01" placeholder="round to 2 decimals">
             </div>
     
-          <select class="custom-select select_choice" id="cap_shape">
+          <select class="custom-select select_choice mushroom_traits" id="cap_shape">
             <option selected>Select cap shape</option>
             <option value="b">bell</option>
             <option value="c">conical</option>
@@ -82,7 +82,7 @@
             <option value="o">others</option>
           </select>
 
-          <select class="custom-select select_choice" id="cap_surface">
+          <select class="custom-select select_choice mushroom_traits" id="cap_surface">
             <option selected>Select cap surface</option>
             <option value="f">fibrous</option>
             <option value="g">grooves</option>
@@ -90,7 +90,7 @@
             <option value="s">smooth</option>
           </select> 
 
-          <select class="custom-select select_choice" id="cap_color">
+          <select class="custom-select select_choice mushroom_traits" id="cap_color">
             <option selected>Select cap color</option>
             <option value="n">brown</option>
             <option value="b">buff</option>
@@ -107,13 +107,13 @@
             <option value="k">black</option>
           </select>
 
-          <select class="custom-select select_choice" id="bruises">
+          <select class="custom-select select_choice mushroom_traits" id="bruises">
             <option selected>Select bruising</option>
             <option value="t">bruises</option>
             <option value="f">no</option>
           </select>
           
-          <select class="custom-select select_choice" id="odor">
+          <select class="custom-select select_choice mushroom_traits" id="odor">
             <option selected>Select odor</option>
             <option value="a">almond</option>
             <option value="l">anise</option>
@@ -126,7 +126,7 @@
             <option value="s">spicy</option>
           </select> 
 
-          <select class="custom-select select_choice" id="gill_attachment">
+          <select class="custom-select select_choice mushroom_traits" id="gill_attachment">
             <option selected>Select gill attachment</option>
             <option value="a">attached</option>
             <option value="d">descending</option>
@@ -134,13 +134,13 @@
             <option value="n">notched</option>
           </select> 
 
-          <select class="custom-select select_choice" id="gill_size">
+          <select class="custom-select select_choice mushroom_traits" id="gill_size">
             <option selected>Select gill size</option>
             <option value="b">broad</option>
             <option value="n">narrow</option>
           </select>
 
-          <select class="custom-select select_choice" id="gill_color">
+          <select class="custom-select select_choice mushroom_traits" id="gill_color">
             <option selected>Select gill color</option>
             <option value="n">brown</option>
             <option value="b">buff</option>
@@ -158,13 +158,13 @@
             <option value="f">none</option>
           </select>
 
-          <select class="custom-select select_choice" id="ring">
+          <select class="custom-select select_choice mushroom_traits" id="ring">
             <option selected>Select ring attribute</option>
             <option value="t">ring</option>
             <option value="f">none</option>
           </select>
 
-          <select class="custom-select select_choice" id="ring_type">
+          <select class="custom-select select_choice mushroom_traits" id="ring_type">
             <option selected>Select ring type</option>
             <option value="c">cobwebby</option>
             <option value="e">evanescent</option>
@@ -180,7 +180,7 @@
             <option value="?">unknown</option>
           </select> 
 
-          <select class="custom-select select_choice" id="habitat">
+          <select class="custom-select select_choice mushroom_traits" id="habitat">
             <option selected>Select habitat</option>
             <option value="g">grasses</option>
             <option value="l">leaves</option>
@@ -192,13 +192,17 @@
             <option value="d">woods</option>
           </select>
 
-          <select class="custom-select select_choice" id="season">
+          <select class="custom-select select_choice mushroom_traits" id="season">
             <option selected>Select season</option>
             <option value="s">spring</option>
             <option value="u">summer</option>
             <option value="a">autumn</option>
             <option value="w">winter</option>
           </select>
+          
+          <!-- how come this doesn't work properly? -->
+          <!-- <input type="submit" value="Predict Edibility" onclick="prediction()"> -->
+          
 
           </form>
           <button onclick="prediction()">Predict Edibility</button>
