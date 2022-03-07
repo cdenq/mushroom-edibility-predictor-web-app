@@ -1,19 +1,19 @@
-async function main(){
-
-};
-
-main();
-
 async function prediction(){
-    // values class options collated
-    predict_list = ['this','is','a','test'];
+    //build object to pass
+    let feature_list = {};
+    //all user input elements
+    let selections = document.getElementsByClassName('mushroom_traits');
+    for (let i = 0; i < selections.length; i++) {
+        let selection = selections[i].value;
+        //filter for traits that user did not input
+        if (selection.includes('Select')){
+            feature_list[selections[i].id] = '0'; 
+        } else {
+            feature_list[selections[i].id] = selection;
+        };
+    };
 
-    //build object to pass************
-    let purple = document.getElementById('cap_shape')
-    console.log(purple.value)
-
-    let feature_list = {'cap_shape': purple};
-
+    // console.log(feature_list);
 
     //call flask route
     let response = await fetch('/predict', {
