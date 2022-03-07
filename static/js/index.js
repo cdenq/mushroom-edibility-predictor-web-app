@@ -8,8 +8,8 @@ async function prediction(){
     };
 
     console.log(feature_list)
-
     //feature_list in correct order for python fnc--or build that as part of the python function?
+    
     //how to handle default "select xx" values (if user doesn't input answer for every field)
     //submit button inside form--how to make it call this function 
     
