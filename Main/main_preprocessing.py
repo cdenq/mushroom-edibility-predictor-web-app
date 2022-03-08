@@ -42,6 +42,7 @@ df_dummies = pd.get_dummies(df)
 #separate X and y data
 X = df_dummies.drop(columns = {'class_e','class_p'})
 y = df_dummies['class_e']
+first_row = X.head(1) #for front-end loading
 
 #scaling the data
 #using standard scaler because assuming the mushroom data is normal
