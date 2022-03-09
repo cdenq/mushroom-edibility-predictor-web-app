@@ -43,3 +43,10 @@ def make_predictions(data):
         model_results['modelAccuracy'].append('placeholder')
 
     return model_results, data
+
+# def make_predictions(data):
+#     if (data):
+#         model_results = {'amodelName': ['Extremely Random Forest','K-Nearest Neighbor'],
+#                     'bmodelPrediction': ["edible",'inedible'],
+#                     'cmodelAccuracy': [89,98]}
+#         return(model_results)

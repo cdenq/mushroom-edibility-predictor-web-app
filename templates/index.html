@@ -265,15 +265,31 @@
       
     <hr>
     <section class="row">
-      <div class="col-md-12">
-        <p id="predictions">results populate here</p>
+      <div class="col-md-6">
+        <h4>Results</h4>
+        <!-- <p id="predictions">results populate here</p> -->
+        <table class="table table-responsive">
+          <thead class = 'thead-light'>
+            <tr>
+              <th scope="col">Model Name</th>
+              <th scope="col">Edibility Prediction</th>
+              <th scope="col">Accuracy Score</th>
+            </tr>
+          </thead>
+           
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <div id="scores"></div>
       </div>
     </section>  
-    </div>
-
     
   <!-- JavaScript -->
   <script type="text/javascript" src="../static/js/index.js"></script>
+  <!-- Plotly -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 </body>
 </html>
