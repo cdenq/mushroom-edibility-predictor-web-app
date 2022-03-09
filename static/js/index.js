@@ -26,17 +26,11 @@ async function prediction(){
         })
     });
     let data = await response.json();
-
     // test code to make sure function is working
-    console.log(data)
-    // console.log(data.0modelName[0])
-
-
-    //sort data object into correct order************
-    
+    console.log(data)  
 
     //populate html with data
-    // table with model name & prediction
+    //table with model name & prediction
 
     // remove any old data
     let previous_data = document.querySelectorAll('.results');
@@ -73,13 +67,87 @@ async function prediction(){
         tBody.appendChild(newtr); // add new row to tbody
     };
 
+    // chart of accuracy scores
+    let models = data.amodelName;
+    let f1Scores = [77,22]; //***********
+    let accuracyScores = data.cmodelAccuracy;
     
-
+    let trace1 = {
+      type: 'scatter',
+      x: f1Scores,
+      y: models,
+      mode: 'markers',
+      name: 'F1',
+      marker: {
+        color: 'rgba(156, 165, 196, 0.95)',
+        line: {
+          color: 'rgba(156, 165, 196, 1.0)',
+          width: 1,
+        },
+        symbol: 'circle',
+        size: 16
+      }
+    };
     
+    let trace2 = {
+      x: accuracyScores,
+      y: models,
+      mode: 'markers',
+      name: 'Accuracy',
+      marker: {
+        color: 'rgba(204, 204, 204, 0.95)',
+        line: {
+          color: 'rgba(217, 217, 217, 1.0)',
+          width: 1,
+        },
+        symbol: 'circle',
+        size: 16
+      }
+    };
+    
+    let plot_data = [trace1, trace2];
+    
+    let layout = {
+      title: 'Metrics per model',
+      xaxis: {
+        showgrid: false,
+        showline: true,
+        linecolor: 'rgb(102, 102, 102)',
+        titlefont: {
+          font: {
+            color: 'rgb(204, 204, 204)'
+          }
+        },
+        tickfont: {
+          font: {
+            color: 'rgb(102, 102, 102)'
+          }
+        },
+        autotick: false,
+        dtick: 10,
+        ticks: 'outside',
+        tickcolor: 'rgb(102, 102, 102)'
+      },
+      margin: {
+        l: 140,
+        r: 40,
+        b: 50,
+        t: 80
+      },
+      legend: {
+        font: {
+          size: 10,
+        },
+        yanchor: 'middle',
+        xanchor: 'right'
+      },
+      width: 600,
+      height: 600,
+      paper_bgcolor: 'rgb(254, 247, 234)',
+      plot_bgcolor: 'rgb(254, 247, 234)',
+      hovermode: 'closest'
+    };
+    
+    Plotly.newPlot('scores', plot_data, layout);
 
-
-
-
-
-    // chart of accuracy scores--will this be the same every time? 
 };
