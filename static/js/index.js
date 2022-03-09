@@ -28,45 +28,48 @@ async function prediction(){
     let data = await response.json();
 
     // test code to make sure function is working
-    // document.querySelector("#predictions").textContent = data;
-    // console.log(data)
-    // console.log(data.modelName[0])
+    console.log(data)
+    // console.log(data.0modelName[0])
+
+
+    //sort data object into correct order************
+    
 
     //populate html with data
     // table with model name & prediction
 
-    // remove old data**********This isn't right
-    // let previous_data = document.querySelectorAll('#results');
-    // document.removeChild(previous_data); 
+    // remove any old data
+    let previous_data = document.querySelectorAll('.results');
+    for (let k=0;k<previous_data.length;k++) {
+        previous_data[k].remove();
+    };
 
-    tBody = document.querySelector('tbody'); //select location to insert data
-    let newtr = document.createElement('tr');
-    let newtd = document.createElement('td');
-
-    //add rows per @ results received--this is always the same tho?
-    let len = data.modelName.length
+    //select location to insert data
+    tBody = document.querySelector('tbody'); 
+    
+    //add rows per # results received--this is always the same tho?
+    let len = data.amodelName.length
  
-    //row class
-    //add th model name
-    //add th prediction
-        //add attribute class = 'table-success' or 'table-danger' 
-    //add th model score
-    //add cell to row
-    //add tr to tbody
-    //set class = results 
-
-
     for (let i=0;i<len;i++){
-        newtr.setAttribute('class',`row${i}`); //new row class
+        let newtr = document.createElement('tr');
+        newtr.setAttribute('class',`row${i} results`); //new row class
         for (const [key, value] of Object.entries(data)) {
-            console.log(`${key}: ${value[i]}`);
+            let newtd = document.createElement('td');
             newtd.textContent = value[i] //add data to cell
-            newtd.setAttribute = ('class','results'); //new class for cell
+            let newAtt = document.createAttribute('class')
+            //new class for cell
+            if (value[i] == 'edible') {
+                newAtt.value = 'table-success results';
+                newtd.setAttributeNode(newAtt);
+            } else if (value[i] == 'inedible') {
+                newAtt.value = 'table-danger results';
+                newtd.setAttributeNode(newAtt);
+            } else {
+                newAtt.value = 'results';
+                newtd.setAttributeNode(newAtt);
+            };
             newtr.appendChild(newtd); // add new cell to new row
         };
-            // newtd.textContent = data.string[i]; 
-            // newtd.textContent = data.modelPrediction[i];
-            // newtd.textContent = data.modelAccuracy[i];
         tBody.appendChild(newtr); // add new row to tbody
     };
 
