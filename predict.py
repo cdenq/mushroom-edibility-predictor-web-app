@@ -46,7 +46,7 @@
 
 def make_predictions(data):
     if (data):
-        model_results = {'modelName': ['Extremely Random Forest'],
-                    'modelPrediction': ["edible"],
-                    'modelAccuracy': [89]}
+        model_results = {'modelName': ['Extremely Random Forest','K-Nearest Neighbor'],
+                    'modelPrediction': ["edible",'inedible'],
+                    'modelAccuracy': [89,98]}
         return(model_results)

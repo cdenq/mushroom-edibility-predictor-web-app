@@ -29,30 +29,48 @@ async function prediction(){
 
     // test code to make sure function is working
     // document.querySelector("#predictions").textContent = data;
-
-    // remove old th data
+    // console.log(data)
+    // console.log(data.modelName[0])
 
     //populate html with data
     // table with model name & prediction
-    post_data = document.querySelector('tbody');
-    const newtr = document.createElement('tr');
-    const newth = document.createElement('th');
-   
+
+    // remove old data**********This isn't right
+    // let previous_data = document.querySelectorAll('#results');
+    // document.removeChild(previous_data); 
+
+    tBody = document.querySelector('tbody'); //select location to insert data
+    let newtr = document.createElement('tr');
+    let newtd = document.createElement('td');
 
     //add rows per @ results received--this is always the same tho?
-    //for (i=0;i<data.length;i++):
-   
-    data.map(item => {
-        let newth = document.createElement('th');
-        newth.textContent = item;
-        newth.id = 'results';
-        document.querySelector('tr').appendChild.newth
-    })
+    let len = data.modelName.length
+ 
+    //row class
+    //add th model name
+    //add th prediction
+        //add attribute class = 'table-success' or 'table-danger' 
+    //add th model score
+    //add cell to row
+    //add tr to tbody
+    //set class = results 
 
-    // newth.textContent = data.modelName;
-    // post_data.append(newth);
-//    if edible: <td class="table-success">...</td>
-//   if poisonous: <td class="table-danger">...</td>
+
+    for (let i=0;i<len;i++){
+        newtr.setAttribute('class',`row${i}`); //new row class
+        for (const [key, value] of Object.entries(data)) {
+            console.log(`${key}: ${value[i]}`);
+            newtd.textContent = value[i] //add data to cell
+            newtd.setAttribute = ('class','results'); //new class for cell
+            newtr.appendChild(newtd); // add new cell to new row
+        };
+            // newtd.textContent = data.string[i]; 
+            // newtd.textContent = data.modelPrediction[i];
+            // newtd.textContent = data.modelAccuracy[i];
+        tBody.appendChild(newtr); // add new row to tbody
+    };
+
+    
 
     
 
