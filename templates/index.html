@@ -70,22 +70,22 @@
           <form id="feature_input">
             <div class="form-group">
               <label for="cap_diameter">Cap diameter (cm)</label>
-              <input type="number" class="form-control mushroom_traits" id="cap_diameter" min="0" step="0.01" placeholder="round to 2 decimals">
+              <input type="number" class="form-control mushroom_traits" id="cap-diameter" min="0" step="0.01" placeholder="round to 2 decimals">
             </div>
 
             <div class="form-group">
               <label for="stem_height">Stem height (cm)</label>
-              <input type="number" class="form-control mushroom_traits" id="stem_height" min="0" step="0.01" placeholder="round to 2 decimals">
+              <input type="number" class="form-control mushroom_traits" id="stem-height" min="0" step="0.01" placeholder="round to 2 decimals">
             </div>
 
             <div class="form-group">
               <label for="stem_width">Stem width (cm)</label>
-              <input type="number" class="form-control mushroom_traits" id="stem_width" min="0" step="0.01" placeholder="round to 2 decimals">
+              <input type="number" class="form-control mushroom_traits" id="stem-width" min="0" step="0.01" placeholder="round to 2 decimals">
             </div>
             
             <div class="form-group">
               <label for="cap_shape">Cap shape</label>
-              <select class="form-control mushroom_traits" id="cap_shape">
+              <select class="form-control mushroom_traits" id="cap-shape">
                 <option selected>Select cap shape</option>
                 <option value="b">bell</option>
                 <option value="c">conical</option>
@@ -99,7 +99,7 @@
 
             <div class="form-group">
               <label for="cap_surface">Cap surface</label>
-              <select class="form-control mushroom_traits" id="cap_surface">
+              <select class="form-control mushroom_traits" id="cap-surface">
                 <option selected>Select cap surface</option>
                 <option value="d">dry</option>
                 <option value="i">fibrous</option>
@@ -117,7 +117,7 @@
 
             <div class="form-group">
               <label for="cap_color">Cap color</label>
-              <select class="form-control mushroom_traits" id="cap_color">
+              <select class="form-control mushroom_traits" id="cap-color">
                 <option selected>Select cap color</option>
                 <option value="n">brown</option>
                 <option value="b">buff</option>
@@ -136,7 +136,7 @@
 
             <div class="form-group">
               <label for="stem_color">Stem color</label>
-              <select class="form-control mushroom_traits" id="stem_color">
+              <select class="form-control mushroom_traits" id="stem-color">
                 <option selected>Select stem color</option>
                 <option value="n">brown</option>
                 <option value="g">gray</option>
@@ -162,7 +162,7 @@
               </select>
             </div>
           
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="odor">Odor</label>
               <select class="form-control mushroom_traits" id="odor">
                 <option selected>Select odor</option>
@@ -177,12 +177,12 @@
                 <option value="s">spicy</option>
               </select> 
             </div>
-          </div>
+          </div> -->
 
           <div class = "col-md-4">
             <div class="form-group">
               <label for="gill_attachment">Gill attachment</label>
-              <select class="form-control mushroom_traits" id="gill_attachment">
+              <select class="form-control mushroom_traits" id="gill-attachment">
                 <option selected>Select gill attachment</option>
                 <option value="x">adnexed</option>  
                 <option value="a">attached</option>
@@ -194,18 +194,18 @@
               </select>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="gill_size">Gill size</label>
-              <select class="form-control mushroom_traits" id="gill_size">
+              <select class="form-control mushroom_traits" id="gill-size">
                 <option selected>Select gill size</option>
                 <option value="b">broad</option>
                 <option value="n">narrow</option>
               </select>
-            </div>  
+            </div>   -->
 
             <div class="form-group">
               <label for="gill_color">Gill color</label>
-              <select class="form-control mushroom_traits" id="gill_color">
+              <select class="form-control mushroom_traits" id="gill-color">
                 <option selected>Select gill color</option>
                 <option value="n">brown</option>
                 <option value="b">buff</option>
@@ -233,7 +233,7 @@
 
             <div class="form-group">
               <label for="ring_type">Ring Type</label>
-              <select class="form-control mushroom_traits" id="ring_type">
+              <select class="form-control mushroom_traits" id="ring-type">
                 <option selected>Select ring type</option>
                 <option value="e">evanescent</option>y
                 <option value="r">flaring</option>y
@@ -271,7 +271,7 @@
             </div>
 
           </form>
-          <button class="btn btn-primary btn-block" onclick="prediction()">Predict Edibility</button>
+          <button id="predictButton" class="btn btn-primary btn-block">Predict Edibility</button>
         </div>
         
         <div class="col-md-4">
