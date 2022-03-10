@@ -8,8 +8,7 @@
   <title>Compare ML Models</title>
 
   <!--Bootstrap CSS-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="../static/css/style.css">
   <!-- bootswatch -->
@@ -20,98 +19,29 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">Predict Edibility</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/mushroom_facts">More About Mushroom Dataset</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/compare_models">Compare Machine Learning Models</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About Us</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">Predict Edibility</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/mushroom_facts">More About Mushroom Dataset</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/compare_models">Compare Machine Learning Models</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About Us</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
 
-  <div class="container-fluid">
-    <div class = 'row'>
-      <h3>
-        Notes on Models and Comparisons
-      </h3>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <h5>
-          Supervised Learning
-        </h5>
-        <a href="../Main/Resources/Models/erf.pkl" download>
-          <p>KMeans</p>
-        </a>
-        <a href="../Main/Resources/Models/knn.pkl" download>
-          <p>KNN</p>
-        </a>
-        <a href="../Main/Resources/Models/lr.pkl" download>
-          <p>Logistic Regression</p>
-        </a>
-        <a href="../Main/Resources/Models/rfc.pkl" download>
-          <p>Random Forest</p>
-        </a>
-        <a href="../Main/Resources/Models/svm.pkl" download>
-          <p>SVM</p>
-        </a>
-      </div>
-    </div>
-    <div class="row">
-      <h5>
-        Unsupervised Learning
-      </h5>
-    </div>
-    <div class="row">
-      <div class="col-sm-3">
-        <a href="../Main/Resources/Models/kmeans_mod.pkl" download>
-          <p>KMeans</p>
-        </a>
-        <a href="../Main/Resources/Models/dbscan_mod.pk1" download>
-          <p>DBSCAN</p>
-        </a>
-        <a href="../Main/Resources/Models/tsne_mod.pk1" download>
-          <p>PCA/TSNE</p>
-        </a>
-        <a href="../Main/Resources/Models/kmeans_elbow.pk1" download>
-          <p>Elbow plot</p>
-        </a>
-      </div>
-      <div class="col-sm-9">
-        <p> The unsupervised learning approaches 
-          applied here aim to 
-          help us understand in what ways (if possible) 
-          the mushrooms could be grouped for potential 
-          future recommendation systems.
-          We could not find a reasonable number of clusters with the original data 
-          (no "elbow" point within 30 clusters) and so
-          tried to reduce the number of features 
-          via PCA and TSNE. While creating such composite 
-          features helped identify and visualize reasonable
-          numbers of clusters (~5) for kmeans and dbscan 
-          clustering and could still be useful for recommending similar mushrooms, 
-          it also means that we lost the 
-          ability to full explain the clusters and their 
-          characteristics (i.e., what characteristics of 
-          similiarity caused xyz mushrooms to be grouped 
-          together?). </p>
-      </div>
-    </div>
-  </div>
-  <!-- JavaScript -->
-  <script type="text/javascript" src="../static/js/compare_models.js"></script>
+    
+    <!-- JavaScript -->
+    <script type="text/javascript" src="../static/js/compare_models.js"></script>
+
 </body>
-
 </html>
