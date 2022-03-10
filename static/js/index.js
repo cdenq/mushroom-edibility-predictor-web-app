@@ -43,7 +43,62 @@ async function prediction(){
       previous_data[k].remove();
   };
 
-  //break off two pieces from data
+  //set up header and table for results
+  let table_div = document.querySelector('#predictions')
+  let newHeader = document.createElement('h4');
+  newHeader.textContent = "Results"
+  let newAttribute = document.createAttribute('class')
+  newAttribute.value = 'results'
+  newHeader.setAttributeNode(newAttribute);
+  table_div.appendChild(newHeader)
+
+  //table
+  let newTable = document.createElement('table')
+  let newAttribute2 = document.createAttribute('class')
+  newAttribute2.value = 'results table table-responsive'
+  newTable.setAttributeNode(newAttribute2);
+  table_div.appendChild(newTable)     
+          
+  //table head
+  let newThead = document.createElement('thead');
+  let newAttribute3 = document.createAttribute('class');
+  newAttribute3.value = 'thead-light results';
+  newThead.setAttributeNode(newAttribute3);
+  let table_overall = document.querySelector('.table');
+  table_overall.appendChild(newThead);
+
+  //table row for table header
+  let newTrow = document.createElement('tr');
+  let table_head = document.querySelector('.thead-light');
+  table_head.appendChild(newTrow);
+
+  //table header cell 1
+  let newTh1 = document.createElement('th');
+  newTh1.textContent = 'Machine Learning Model';
+  let newAttribute5 = document.createAttribute('scope');
+  newAttribute5.value = 'col';
+  newTh1.setAttributeNode(newAttribute5);
+  let table_row = document.querySelector('tr')
+  table_row.appendChild(newTh1);
+
+  //table header cell 2
+  let newTh2 = document.createElement('th');
+  newTh2.textContent = 'Edibility Prediction';
+  let newAttribute6 = document.createAttribute('scope');
+  newAttribute6.value = 'col';
+  newTh2.setAttributeNode(newAttribute6);
+  table_row.appendChild(newTh2);
+
+  //table body
+  let newTbody = document.createElement('tbody');
+  let newAttribute4 = document.createAttribute('class');
+  newAttribute4.value = 'results';
+  newTbody.setAttributeNode(newAttribute4);
+  table_overall.appendChild(newTbody);
+
+
+
+  //break off two pieces from data for table
   let table_info = (({amodelName, bmodelPrediction}) => ({amodelName, bmodelPrediction}))(data);
  
   //select location to insert data
@@ -73,12 +128,14 @@ async function prediction(){
       tBody.appendChild(newtr); // add new row to tbody
   };
 
-  // chart of scores
-  let models = data.amodelName;
-  let accuracyScores = data.cmodelAccuracy;
-  let precisionScores = data.emodelPrecision;
-  let f1Scores = data.dmodelF1
-  let recallScores = data.fmodelRecall;
+
+
+  // chart of scores--reverse makes chart match order of table
+  let models = (data.amodelName).reverse();
+  let accuracyScores = (data.cmodelAccuracy).reverse();
+  let precisionScores = (data.emodelPrecision).reverse();
+  let f1Scores = (data.dmodelF1).reverse();
+  let recallScores = (data.fmodelRecall).reverse();
   
   let trace1 = {
     type: 'scatter',
@@ -92,6 +149,7 @@ async function prediction(){
         color: 'rgba(156, 165, 196, 1.0)',
         width: 1,
       },
+      opacity: 0.6,
       symbol: 'circle',
       size: 16
     }
@@ -108,6 +166,7 @@ async function prediction(){
         color: 'rgba(217, 217, 217, 1.0)',
         width: 1,
       },
+      opacity: 0.6,
       symbol: 'circle',
       size: 16
     }
@@ -124,6 +183,7 @@ async function prediction(){
         color: 'rgba(217, 217, 217, 1.0)',
         width: 1,
       },
+      opacity: 0.6,
       symbol: 'circle',
       size: 16
     }
@@ -140,6 +200,7 @@ async function prediction(){
         color: 'rgba(217, 217, 217, 1.0)',
         width: 1,
       },
+      opacity: 0.6,
       symbol: 'circle',
       size: 16
     }
@@ -153,19 +214,15 @@ async function prediction(){
       showgrid: false,
       showline: true,
       linecolor: 'rgb(102, 102, 102)',
-      titlefont: {
-        font: {
-          color: 'rgb(204, 204, 204)'
-        }
-      },
       tickfont: {
         font: {
           color: 'rgb(102, 102, 102)'
         }
       },
       autotick: true,
+      tickcolor: 'rgb(102, 102, 102)',
       ticks: 'outside',
-      tickcolor: 'rgb(102, 102, 102)'
+      hoverformat: '.3f' //when hovering, data points rounded to 3 decimal places
     },
     margin: {
       l: 160,
@@ -175,18 +232,21 @@ async function prediction(){
     },
     legend: {
       font: {
-        size: 10,
+        size: 12,
       },
-      yanchor: 'middle',
+      y: 4,
       xanchor: 'right'
     },
-    width: 600,
-    height: 600,
     paper_bgcolor: 'rgb(254, 247, 234)',
     plot_bgcolor: 'rgb(254, 247, 234)',
     hovermode: 'closest'
   };
   
-  Plotly.newPlot('scores', plot_data, layout);
+  let config = {
+    responsive: true, 
+    modeBarButtonsToRemove: ['zoom2d', 'pan2d', 'select2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d','resetScale2d', 'toggleSpikelines']
+  };
+
+  Plotly.newPlot('scores', plot_data, layout, config);
 
 };
