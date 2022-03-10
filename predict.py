@@ -21,7 +21,7 @@ def make_predictions(data):
     data['stem-height'] = float(data['stem-height'])
     data['stem-width'] = float(data['stem-width'])
 
-    print(data)
+    # print(data)
 
     # for feature in data.keys():
     #     if '_' in feature:
@@ -33,21 +33,21 @@ def make_predictions(data):
     input_df = pd.DataFrame(data, index=[0])
     input_dummies = pd.get_dummies(input_df)
 
-    print(input_dummies.columns)
-    print(initial_data.columns)
+    # print(input_dummies.columns)
+    # print(initial_data.columns)
 
     merged_df = initial_data.merge(input_dummies, how = 'outer')
     merged_df.fillna(0.0, inplace = True)
     input_data = merged_df.iloc[1, :].values
 
-    print(merged_df)
-    print(merged_df.columns)
+    # print(merged_df)
+    # print(merged_df.columns)
     # print(input_data)
     # print(len(input_data))
 
     scaler = StandardScaler()
     X_train = preprocessing()[1]
-    print(len(X_train))
+    # print(len(X_train))
     scaler.fit(X_train)
     # reshaped_data = np.array(input_data).reshape(-1, 1)
     scaled_input_data = scaler.transform([input_data])
@@ -59,13 +59,13 @@ def make_predictions(data):
     # print(test)
 
     for index, file in enumerate(os.listdir('static/models/')):
-        print(file)
+        # print(file)
         filename = os.fsdecode(file)
-        print(filename)
-        model_list = ['Extreme Random Forest', 'K-Nearest Neighbor', 'Logistic Regression', 'Random Forest Classifier', 'SVM']
+        # print(filename)
+        model_list = ['Extremely Random Forest', 'K-Nearest Neighbor', 'Logistic Regression', 'Random Forest Classifier', 'SVM']
         model = joblib.load('Main/Resources/Models/' + filename)
         prediction = model.predict(scaled_input_data)
-        print(prediction)
+        # print(prediction)
         model_scores = supervised_ml.model_score(model)
         model_scores = [float(score) for score in model_scores]
         model_results['amodelName'].append(model_list[index])
@@ -74,5 +74,5 @@ def make_predictions(data):
         model_results['dmodelF1'].append(model_scores[1])
         model_results['emodelPrecision'].append(model_scores[2])
         model_results['fmodelRecall'].append(model_scores[3])
-    print(model_results)
+    # print(model_results)
     return model_results

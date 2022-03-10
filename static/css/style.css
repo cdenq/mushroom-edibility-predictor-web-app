@@ -2,3 +2,7 @@
 .mt-3 {
     margin-top: 8 !important;
   }
+
+#spinner {
+  display: none
+}
