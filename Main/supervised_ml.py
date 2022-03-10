@@ -9,12 +9,12 @@ import matplotlib.pyplot as plt
 import math
 
 # import variables from cleaner file
-import main_preprocessing
-X_train_scaled = main_preprocessing.X_train_secondary_droppedna
-X_test_scaled = main_preprocessing.X_test_secondary_droppedna
-y_train = main_preprocessing.y_train_secondary_droppedna
-y_test = main_preprocessing.y_test_secondary_droppedna
-global_random_state = main_preprocessing.global_random_state
+from main_preprocessing import preprocessing
+X_train_scaled = preprocessing()[1]
+X_test_scaled = preprocessing()[2]
+y_train = preprocessing()[3]
+y_test = preprocessing()[4]
+global_random_state = preprocessing()[5]
 
 # import model saving capability for modularity
 import joblib
@@ -27,9 +27,18 @@ def fit_score(model, label):
     acc = accuracy_score(y_test, y_pred)
     prec = precision_score(y_test, y_pred)
     rec = recall_score(y_test, y_pred)
-    print(f'-----{label}-----')
-    print(classification_report(y_test, y_pred))
-    joblib.dump(model, f'Resources/Models/{label}.pkl') #saving fitted model for modularity/passing to server
+    # print(f'-----{label}-----')
+    # print(classification_report(y_test, y_pred))
+    joblib.dump(model, f'Main/Resources/Models/{label}.pkl') #saving fitted model for modularity/passing to server
+    return [acc, f1, prec, rec]
+
+# general model fit-score
+def model_score(model):
+    y_pred = model.predict(X_test_scaled)
+    f1 = f1_score(y_test, y_pred)
+    acc = accuracy_score(y_test, y_pred)
+    prec = precision_score(y_test, y_pred)
+    rec = recall_score(y_test, y_pred)
     return [acc, f1, prec, rec]
 
 # random forest function
@@ -61,8 +70,8 @@ def knn_final():
     return fit_score(knn, 'knn')
 
 # save vars
-rfc_computed = rfc()
-erf_computed = erf()
-lr_computed = lr()
-svm_computed = svm()
-knn_computed = knn_final()
+# rfc_computed = rfc()
+# erf_computed = erf()
+# lr_computed = lr()
+# svm_computed = svm()
+# knn_computed = knn_final()
