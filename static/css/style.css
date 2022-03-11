@@ -6,3 +6,25 @@
 #spinner {
   display: none
 }
+
+.eda-col {
+  float: middle;
+  width: 50%;
+  padding: 0%;
+}
+
+.eda-third-col {
+  float: middle;
+  width: 33.33%;
+  padding: 0%;
+}
+
+.eda-solo-col {
+  float: middle;
+  width: 100%;
+  padding: 0%;
+}
+
+.eda-image {
+  width: 100%;
+}
