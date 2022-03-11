@@ -1,6 +1,5 @@
 document.querySelector("#predictButton").addEventListener("click", function(event) {
   event.preventDefault();
-  console.log("Edison")
   prediction()
 });
 

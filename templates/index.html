@@ -19,12 +19,12 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> 
         <a class="navbar-brand" href="/">Predict Edibility</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">  
           <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="/mushroom_facts">More About Mushroom Dataset</a>
@@ -153,6 +153,11 @@
               </select>
             </div>
 
+            
+
+          </div> 
+
+          <div class = "col-md-4">
             <div class="form-group">
               <label for="does-bruise-or-bleed">Bruising</label>
               <select class="form-control mushroom_traits" id="does-bruise-or-bleed">
@@ -161,10 +166,7 @@
                 <option value="f">no</option>
               </select>
             </div>
-
-          </div> 
-
-          <div class = "col-md-4">
+            
             <div class="form-group">
               <label for="gill_attachment">Gill attachment</label>
               <select class="form-control mushroom_traits" id="gill-attachment">
@@ -249,10 +251,7 @@
           </form>
           <button id="predictButton" class="btn btn-primary btn-block">Predict Edibility</button>
 
-          <button class="btn btn-primary btn-block btn-lg" type="button" id="spinner" disabled>
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            Predicting...
-          </button>
+        
 
         </div>
         
@@ -268,6 +267,10 @@
     <hr>
     <section class="row">
       <div class="col-md-4" id="predictions">
+        <button class="btn btn-primary btn-block btn-lg" type="button" id="spinner" disabled>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Predicting...
+        </button>
       </div>
       <div class="col-md-8">
         <div id="scores"></div>
