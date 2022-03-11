@@ -1,23 +1,18 @@
 document.querySelector("#predictButton").addEventListener("click", function(event) {
   event.preventDefault();
-  console.log("Edison")
   prediction()
 });
 
 async function prediction(){
+  //display spinner
   document.getElementById('spinner').style.display = 'block';
+  
   //build object to pass
   let feature_list = {};
   //all user input elements
   let selections = document.getElementsByClassName('mushroom_traits');
   for (let i = 0; i < selections.length; i++) {
-      let selection = selections[i].value;
-      //filter for traits that user did not input
-      // if (selection.includes('Select')){
-      //     feature_list[selections[i].id] = '0'; 
-      // } else {
-          feature_list[selections[i].id] = selection;
-      // };
+      feature_list[selections[i].id] = selections[i].value;
   };
 
   //call flask route

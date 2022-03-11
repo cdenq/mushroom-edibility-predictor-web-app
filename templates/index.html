@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mushroom ID</title>
 
   <!--Bootstrap CSS-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="../static/css/style.css">
   <!-- bootswatch -->
@@ -20,12 +20,12 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="/">Predict Edibility</a>
+    <a class="navbar-brand" href="/">Predict Edibility</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-          <ul class="navbar-nav">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown"> 
+          <ul class="nav navbar-nav navbar-right navbar-right-custom">
             <li class="nav-item">
                 <a class="nav-link" href="/mushroom_facts">More About Mushroom Dataset</a>
             </li>
@@ -37,7 +37,7 @@
             </li>
           </ul>
         </div>
-    </nav>
+   </nav>
     
     <div class="container">
       <section class="row">
@@ -85,7 +85,7 @@
             
             <div class="form-group">
               <label for="cap_shape">Cap shape</label>
-              <select class="form-control mushroom_traits" id="cap-shape" required>
+              <select class="form-control mushroom_traits" id="cap-shape">
                 <option selected value="x">Select cap shape</option>
                 <option value="b">bell</option>
                 <option value="c">conical</option>
