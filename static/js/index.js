@@ -1,5 +1,6 @@
 document.querySelector("#predictButton").addEventListener("click", function(event) {
   event.preventDefault();
+  console.log("Edison")
   prediction()
 });
 
@@ -12,11 +13,11 @@ async function prediction(){
   for (let i = 0; i < selections.length; i++) {
       let selection = selections[i].value;
       //filter for traits that user did not input
-      if (selection.includes('Select')){
-          feature_list[selections[i].id] = '0'; 
-      } else {
+      // if (selection.includes('Select')){
+      //     feature_list[selections[i].id] = '0'; 
+      // } else {
           feature_list[selections[i].id] = selection;
-      };
+      // };
   };
 
   //call flask route

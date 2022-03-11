@@ -16,12 +16,14 @@ def make_predictions(data):
                     'dmodelF1': [],
                     'emodelPrecision': [],
                     'fmodelRecall': []}
- 
+    
+    print(data)
+
     data['cap-diameter'] = float(data['cap-diameter'])
     data['stem-height'] = float(data['stem-height'])
     data['stem-width'] = float(data['stem-width'])
 
-    # print(data)
+    print(data)
 
     # for feature in data.keys():
     #     if '_' in feature:
