@@ -32,6 +32,14 @@ def facts():
 def models():
     return render_template('compare_models.html')
 
+@app.route('/eda_stats')
+def edastats():
+    return render_template('eda_stats.html')
+
+@app.route('/eda_color')
+def edacolor():
+    return render_template('eda_color.html')
+
 #route for about page
 @app.route('/about')
 def about():
